@@ -28,13 +28,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/usuario/**").permitAll()
+			.antMatchers("/endereco/**").hasRole("ADMIN")
 			.anyRequest()
 			.authenticated()
 			.and()
 			.csrf().disable()
 			.formLogin()
 			.loginPage("/login")
-			.permitAll();
+			.permitAll()
+			.and().exceptionHandling().accessDeniedPage("/negado");
 	}
 	
 }

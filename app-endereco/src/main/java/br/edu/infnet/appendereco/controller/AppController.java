@@ -25,6 +25,11 @@ public class AppController {
 	public String telaLogin() {
 		return "login";
 	}
+	
+	@GetMapping(value = "/negado")
+	public String telaNegado() {
+		return "negado";
+	}
 
 //	@PostMapping(value="/login")
 //	public String login(@RequestParam String email, @RequestParam String senha, Model model) {
