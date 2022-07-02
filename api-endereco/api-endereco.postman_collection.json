@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "89443c43-c937-459f-a2f9-752b628f73a4",
+		"name": "api-endereco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "listar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/endereco/listar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"endereco",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/endereco/12345678",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"endereco",
+						"12345678"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "incluir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cep\": \"22222222\",\r\n    \"logradouro\": \"São José, 90\",\r\n    \"complemento\": \"Segundo andar\",\r\n    \"bairro\": \"Centro\",\r\n    \"localicade\": \"Rio de Janeiro\",\r\n    \"uf\": \"RJ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/endereco/incluir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"endereco",
+						"incluir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excluir",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/endereco/17/excluir",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"endereco",
+						"17",
+						"excluir"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
