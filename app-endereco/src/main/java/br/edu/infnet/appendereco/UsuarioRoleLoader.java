@@ -5,7 +5,6 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appendereco.model.domain.Endereco;
@@ -22,9 +21,6 @@ public class UsuarioRoleLoader implements ApplicationRunner{
 	
 	@Autowired
 	private UsuarioService usuarioService;
-	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -44,7 +40,7 @@ public class UsuarioRoleLoader implements ApplicationRunner{
 		usuario1.setEndereco(endereco1);
 		usuario1.setNome("Usuario 1");
 		usuario1.setRoles(Arrays.asList(new Role(1)));
-		usuario1.setSenha(bCryptPasswordEncoder.encode("senha1"));
+		usuario1.setSenha("senha1");
 		
 		usuarioService.incluir(usuario1);
 		
@@ -61,7 +57,7 @@ public class UsuarioRoleLoader implements ApplicationRunner{
 		usuario2.setEndereco(endereco2);
 		usuario2.setNome("Usuario 2");
 		usuario2.setRoles(Arrays.asList(new Role(2)));
-		usuario2.setSenha(bCryptPasswordEncoder.encode("senha2"));
+		usuario2.setSenha("senha2");
 		
 		usuarioService.incluir(usuario2);
 		

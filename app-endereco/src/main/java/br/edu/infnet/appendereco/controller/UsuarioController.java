@@ -3,7 +3,6 @@ package br.edu.infnet.appendereco.controller;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,9 +24,6 @@ public class UsuarioController {
 	@Autowired
 	private RoleService roleService;
 	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
 	@GetMapping(value="/usuario")
 	public String telaCadastro(Model model) {
 		
@@ -39,7 +35,6 @@ public class UsuarioController {
 	@PostMapping(value="/usuario/incluir")
 	public String incluir(Usuario usuario, Endereco endereco, @RequestParam Integer acesso) {
 		
-		usuario.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
 		usuario.setEndereco(endereco);
 		usuario.setRoles(Arrays.asList(new Role(acesso)));
 		usuarioService.incluir(usuario);

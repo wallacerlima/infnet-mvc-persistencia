@@ -1,6 +1,7 @@
 package br.edu.infnet.appendereco.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appendereco.model.domain.Usuario;
@@ -12,7 +13,11 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 	public void incluir(Usuario usuario) {
+		usuario.setSenha(bCryptPasswordEncoder.encode(usuario.getSenha()));
 		usuarioRepository.save(usuario);
 	}
 	
